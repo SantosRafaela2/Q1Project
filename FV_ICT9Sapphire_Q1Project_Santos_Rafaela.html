@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping Website</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #fcc0d6;
+            padding: 20px;
+            text-align: center;
+        }
+        .product {
+            border: 1px solid #ff66b2;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+            text-align: center;
+            width: 150px;
+            border-radius: 10px; /* Added */
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #cart {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e55ca6;
+        }
+        #clear-cart {
+            margin-top: 10px;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            background-color:#fcc0d6;
+            padding: 20px;
+        }
+        a {
+            color: #ff66b2;
+        }
+        .form-container {
+            background-color: #fff0f5;
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            border: 1px solid #ff66b2;
+        }
+        h2 {
+            color: #e6709b;
+            text-align: center;
+        }
+        .reviews {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .review {
+            border: 1px solid #ff66b2;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff0f5;
+            border-radius: 10px; /* Optional */
+        }
+
+        h4{
+            color:#e6709b ;
+            text-align: center;
+            text-size-adjust: 10px;
+        }
+         #success-message {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+
+    </style>
+    <script>
+        let cart = [];
+        let totalPrice = 0;
+
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            totalPrice += price;
+
+            document.getElementById('cart').innerText = `Cart: ${cart.length} items`;
+            document.getElementById('total').innerText = `Total: ₱${totalPrice}`;
+            document.getElementById('success-message').innerText = `${product} added to cart!`;
+            document.getElementById('success-message').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('success-message').style.display = 'none';
+            }, 2000);
+        }
+
+        function clearCart() {
+            cart = [];
+            totalPrice = 0;
+            document.getElementById('cart').innerText = `Cart: 0 items`;
+            document.getElementById('total').innerText = `Total: ₱0`;
+        }
+    </script>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="styleP10.css">
+    <header>
+        <h1> ☆ Midas Touch ☆</h1>
+        <p>Need to go? We can make you glow!</p>
+    </header>
+
+    <div id="cart">Cart: 0 items</div>
+    <div id="total">Total: ₱0</div>
+    <div id="success-message"></div>
+    <button id="clear-cart" onclick="clearCart()">Clear Cart</button>
+
+
+
+   <br><br>
+    
+    <h2>★ Lip products ★</h2>
+    <div class="products">
+        <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/6_b30901bf-29a7-4903-8b1b-e02205f116f2.png?v=1617237574&width=1206" alt="Rasberry Fairy" style="width:100%;">
+            <h3>Rasberry Fairy</h3>
+            <p>₱400</p>
+            <button onclick="addToCart('Rasberry Fairy', 250)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/10_9ef5515c-2b5b-4d82-97b5-1447ebc1e76a.png?v=1617237578&width=1206" alt="Bloom Bunny" style="width:100%;">
+            <h3>Bloom Bunny</h3>
+            <p>₱400</p>
+            <button onclick="addToCart('Bloom Bunny', 250)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/5_248382a1-43c3-4739-bd78-7faf661e98d7.png?v=1617237575&width=1206" alt="Sakura Aura" style="width:100%;">
+            <h3>Sakura Aura</h3>
+            <p>₱400</p>
+            <button onclick="addToCart('Sakura Aura', 250)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/15_600819a2-5dc1-45d6-983d-50bedd039ca5.jpg?v=1652412859&width=1206" alt="Orange Crunch" style="width:100%;">
+            <h3>Orange Crunch</h3>
+            <p>₱450</p>
+            <button onclick="addToCart('Orange Crunch', 200)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/16_c762729f-9543-4d0f-b57e-02e587ed6c2b.jpg?v=1652412868&width=1206" alt="Sparkle Skull" style="width:100%;">
+            <h3>Sparkle Skull</h3>
+            <p>₱450</p>
+            <button onclick="addToCart('Sparkle Skull', 200)">Add to Cart</button>
+        </div>
+    </div>
+
+    <br><br>
+
+    <h2>★ Eye palettes ★</h2>
+    <div class="products">
+
+
+         <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/dustyfoggarden8.jpg?v=1671006817&width=1206" alt="Midnight Pride" style="width:100%;">
+            <h3>Midnight Pride</h3>
+            <p>₱1,300</p>
+            <button onclick="addToCart('Midnight Pride', 350)">Add to Cart</button>
+        </div>
+
+         <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/rosebudgarden5.jpg?v=1671006817&width=1206" alt="Cloudy Brownie" style="width:100%;">
+            <h3>Cloudy Brownie</h3>
+            <p>₱1,300</p>
+            <button onclick="addToCart('Cloudy Brownie', 350)">Add to Cart</button>
+        </div>
+        
+         <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/pampasgarden3.jpg?v=1671006817&width=1206" alt="Blessed Sunset" style="width:100%;">
+            <h3>Blessed Sunset</h3>
+            <p>₱1,300</p>
+            <button onclick="addToCart('Blessed Sunset', 350)">Add to Cart</button>
+        </div>
+
+         <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/a3898695e6880f351a2370e4d7717504.jpg?v=1617837821&width=1206" alt="Berry Tree" style="width:100%;">
+            <h3>Berry Tree</h3>
+            <p>₱1,100</p>
+            <button onclick="addToCart('Berry Tree', 350)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/0f5123506414edb90b76faf155676e4f.jpg?v=1617837820&width=1206" alt="Nude Mood" style="width:100%;">
+            <h3>Nude Mood</h3>
+            <p>₱1,100</p>
+            <button onclick="addToCart('Nude Mood', 300)">Add to Cart</button>
+        </div>
+
+       
+    </div>
+    <br><br>
+
+    <h2>★ Blush ★</h2>
+    <div class="products">
+
+        <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/CoverOfficial_58550b82-8b0e-44b1-a46c-ffc80782ccc2.png?v=1701657042&width=1206" alt="Cookie Coded" style="width:100%;">
+            <h3>Cookie Coded</h3>
+            <p>₱850</p>
+            <button onclick="addToCart('Cookie Coded', 350)">Add to Cart</button>
+        </div>
+        
+
+        
+         <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/CoverOfficial_fea29aa9-804b-48c5-b216-3d2732221649.png?v=1701657042&width=1206" alt="Teddy Frenzy" style="width:100%;">
+            <h3>Teddy Frenzy</h3>
+            <p>₱850</p>
+            <button onclick="addToCart('Teddy Frenzy', 350)">Add to Cart</button>
+        </div>
+        
+         <div class="product">
+            <img src="https://lvsshop.com/cdn/shop/products/19538023_c6ab7785-894e-460d-a1b7-5fb887c8454b_500_500.jpg?v=1701657042&width=1206" alt="Peach Feels" style="width:100%;">
+            <h3>Peach Feels</h3>
+            <p>₱850</p>
+            <button onclick="addToCart('Peach Feels', 350)">Add to Cart</button>
+        </div>
+
+    <br><br>
+    <br><br>
+     <br><br>
+    <br><br>
+
+</div>
+
+
+    <div class="reviews">
+
+        <footer>
+
+        <h2>★ Customer Reviews ★</h2>
+
+    </footer>
+        <div class="review"> 
+            <p><strong>Kim Minji:</strong>   I love the shades of the Teddy Frenzy blush!                             - ♥︎♥︎♥︎♥︎♥︎</p>
+        </div>
+        <div class="review">
+            <p><strong>An Yujin:</strong>  The glitters in the Blessed Sunset pallette are soo pigmented !!            - ♥︎♥︎♥︎♥︎♥︎</p>
+        </div>
+        <div class="review">
+            <p><strong>Sakura Miyawaki:</strong>  My fav is the Bloom Bunny tint !!! I will definitely be repurchasing - ♥︎♥︎♥︎♥︎♥︎</p>
+        </div>
+
+        <footer>
+    <div class="review-section" style="text-align: center; margin-top: 30px;">
+        <h2>★ Review ★</h2>
+        <label for="product-choice">Rating:</label>
+        <select id="product-choice">
+            <option value="Rasberry Fairy">💗💗💗💗💗</option>
+            <option value="Bloom Bunny">💗💗💗💗</option>
+            <option value="Sakura Aura">💗💗💗</option>
+            <option value="Orange Crunch">💗💗</option>
+            <option value="Sparkle Skull">💗</option>
+        </select>
+
+        <br><br>
+
+        <form>
+        
+        <textarea rows="5" cols="35" placeholder="Leave your review here..."></textarea><br>
+        <button type="submit">Submit Review</button>
+        <div id="reviews" style="margin-top: 20px;"></div>
+    </form>
+    </div>
+
+</footer>
+
+        <footer>
+        <h5>Follow Us</h55>
+        <p>Stay updated with the latest products and offers!</p>
+        <a href="https://www.instagram.com" target="_blank">Instagram</a> | 
+        <a href="https://www.facebook.com" target="_blank">Facebook</a> | 
+        <a href="https://www.twitter.com" target="_blank">Twitter</a>
+    </footer>
+
+<footer>
+    <a href="https://docs.google.com/document/d/12StliHupfXkwqLlaNdRV_aHbffD6HwmFzvJYFoC3m2Q/edit?usp=sharing" target="_blank">☆ References ☆</a>
+</footer>
